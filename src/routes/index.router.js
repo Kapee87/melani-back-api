@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
            <nav>
            <ul style='display:flex; justify-content:space-around; list-style-type: none;'>
            <li style='background-color:indigo; padding:1rem; border-radius:2rem;'onmouseover="this.style.color='red';">
-           <a href='/api/users' style='text-decoration: none; color:silver; font-weight:bold'>Ir a User endpoint</a>
+           <a href='/api/user' style='text-decoration: none; color:silver; font-weight:bold'>Ir a User endpoint</a>
            </li>
            <li style='background-color:indigo; padding:1rem; border-radius:2rem;'>
            <a href='/api/works' style='text-decoration: none; color:silver; font-weight:bold'>Ir a Works endpoint</a>
