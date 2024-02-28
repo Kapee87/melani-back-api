@@ -21,8 +21,7 @@ const controller = {
             return next(error)
         }
     },
-    getWorkById: async (req, res) => {
-
+    getWorkById: async (req, res, next) => {
         try {
             const getWorkById = await Work.findById(req.params.id)
             return res.status(200).json({
@@ -33,8 +32,8 @@ const controller = {
             return next(error)
         }
     },
-    createWork: async (req, res) => {
-        console.log(req.body);
+    createWork: async (req, res, next) => {
+        console.log('req body ', req.body);
         try {
             const newWork = await Work.create(req.body)
             return res.status(201).json({

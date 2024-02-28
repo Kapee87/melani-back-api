@@ -1,8 +1,9 @@
 
 const isUserOnline = (req, res, next) => {
+    console.log('isUser ', req.body);
     try {
         const { user } = req
-        console.log(user);
+        // console.log(user);
         if (user.online) {
             return next()
         } else {

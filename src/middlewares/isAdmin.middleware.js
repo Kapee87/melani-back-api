@@ -2,9 +2,9 @@ import User from "../model/User.js"
 
 const isAdmin = async (req, res, next) => {
     try {
-        const { role } = await User.findById(req.query.userId)
-
-        if (role == 'admin') {
+        const user = await User.findById(req.user._id)
+        console.log(user, req.user);
+        if (user.role == 'admin') {
             return next()
         }
         return res.status(401).json({

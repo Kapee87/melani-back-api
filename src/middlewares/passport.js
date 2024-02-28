@@ -10,6 +10,7 @@ export default passport.use(
         },
         async (jwt_payload, done) => {
             try {
+                console.log('passport ', jwt_payload);
                 const user = await User.findOne({ _id: jwt_payload.id }, '-password') //'-password' en teoría no devuelve ese campo
 
                 if (user) {

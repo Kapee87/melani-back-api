@@ -4,7 +4,7 @@ const collection = 'works';
 
 let schema = new Schema({
     'name': { type: String, required: true },
-    'detail': { type: String, required: true },
+    'detail': { type: String },
     'imageUrl': { type: String, required: true }
 }, {
     timestamps: true
