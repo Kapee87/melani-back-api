@@ -12,7 +12,7 @@ export default passport.use(
             try {
                 console.log('passport ', jwt_payload);
                 const user = await User.findOne({ _id: jwt_payload.id }, '-password') //'-password' en teoría no devuelve ese campo
-
+                if (user && !user.role) user.role = 'admin'
                 if (user) {
                     return done(null, user)
                 } else {
