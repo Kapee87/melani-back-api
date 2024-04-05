@@ -7,7 +7,8 @@ let schema = new Schema({
     'image': { type: String, required: true },
     'info': { type: String, required: true },
     'date': { type: String, required: true },
-    'address': { type: String }
+    'address': { type: String },
+    'website': { type: String }
 }, {
     timestamps: true
 })
