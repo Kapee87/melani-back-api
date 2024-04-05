@@ -14,7 +14,7 @@ router.get('/:id', getExpoById);
 
 router.post('/', passport.authenticate('jwt', { session: false }), isUserOnline, isAdmin, createExpo);
 
-// router.delete('/:id', isAdmin, deleteExpo);
+router.delete('/:id', passport.authenticate('jwt', { session: false }), isUserOnline, isAdmin, deleteExpo);
 
 router.put('/:id', passport.authenticate('jwt', { session: false }), isUserOnline, isAdmin, updateExpo);
 

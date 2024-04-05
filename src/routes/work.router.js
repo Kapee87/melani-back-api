@@ -14,7 +14,7 @@ router.get('/:id', getWorkById);
 
 router.post('/', passport.authenticate('jwt', { session: false }), isUserOnline, isAdmin, createWork);
 
-router.delete('/:id', passport.authenticate('jwt', { session: false }), deleteWork);
+router.delete('/:id', passport.authenticate('jwt', { session: false }), isAdmin, deleteWork);
 
 router.put('/:id', passport.authenticate('jwt', { session: false }), isUserOnline, isAdmin, updateWork);
 
