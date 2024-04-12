@@ -4,9 +4,9 @@ const collection = 'expos';
 
 let schema = new Schema({
     'name': { type: String, required: true },
-    'image': { type: String, required: true },
-    'info': { type: String, required: true },
-    'date': { type: String, required: true },
+    'image': { type: String },
+    'info': { type: String },
+    'date': { type: String },
     'address': { type: String },
     'website': { type: String }
 }, {
