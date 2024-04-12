@@ -1,7 +1,7 @@
 import Expo from '../model/Expo.js'
 
 const controller = {
-    getExpos: async (req, res, next, next) => {
+    getExpos: async (req, res, next) => {
 
         try {
             const getExpos = await Expo.find()
