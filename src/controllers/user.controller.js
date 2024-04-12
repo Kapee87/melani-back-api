@@ -61,6 +61,7 @@ const controller = {
     },
     updateUser: async (req, res) => {
         try {
+            req.body.password = bcryptjs.hashSync(req.body.password, 10)
             const updateUserArray = await User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             return res.status(200).json({
                 success: true,
