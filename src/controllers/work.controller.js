@@ -1,7 +1,7 @@
 import Work from '../model/Work.js'
 
 const controller = {
-    getWorks: async (req, res) => {
+    getWorks: async (req, res, next) => {
 
         try {
             const getWorks = await Work.find()
@@ -44,7 +44,7 @@ const controller = {
             return next(error)
         }
     },
-    deleteWork: async (req, res) => {
+    deleteWork: async (req, res, next) => {
         try {
             const deleteWork = await Work.findByIdAndDelete(req.params.id)
             return res.status(200).json({
@@ -55,7 +55,7 @@ const controller = {
             returnnext(error)
         }
     },
-    updateWork: async (req, res) => {
+    updateWork: async (req, res, next) => {
         try {
             const updateWorkArray = await Work.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             return res.status(200).json({

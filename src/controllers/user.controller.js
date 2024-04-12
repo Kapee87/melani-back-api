@@ -47,7 +47,7 @@ const controller = {
             return next(error)
         }
     },
-    deleteUser: async (req, res) => {
+    deleteUser: async (req, res, next) => {
         try {
             const deleteUser = await User.findByIdAndDelete(req.params.id)
             return res.status(200).json({
@@ -56,10 +56,10 @@ const controller = {
                 deleteUser: deleteUser
             })
         } catch (error) {
-            returnnext(error)
+            return next(error)
         }
     },
-    updateUser: async (req, res) => {
+    updateUser: async (req, res, next) => {
         try {
             req.body.password = bcryptjs.hashSync(req.body.password, 10)
             const updateUserArray = await User.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })

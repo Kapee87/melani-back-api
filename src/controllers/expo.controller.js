@@ -1,7 +1,7 @@
 import Expo from '../model/Expo.js'
 
 const controller = {
-    getExpos: async (req, res) => {
+    getExpos: async (req, res, next, next) => {
 
         try {
             const getExpos = await Expo.find()
@@ -21,7 +21,7 @@ const controller = {
             return next(error)
         }
     },
-    getExpoById: async (req, res) => {
+    getExpoById: async (req, res, next) => {
 
         try {
             const getExpoById = await Expo.findById(req.params.id)
@@ -33,7 +33,7 @@ const controller = {
             return next(error)
         }
     },
-    createExpo: async (req, res) => {
+    createExpo: async (req, res, next) => {
         console.log(req.body);
         try {
             const newExpo = await Expo.create(req.body)
@@ -45,7 +45,7 @@ const controller = {
             return next(error)
         }
     },
-    deleteExpo: async (req, res) => {
+    deleteExpo: async (req, res, next) => {
         try {
             const deleteExpo = await Expo.findByIdAndDelete(req.params.id)
             return res.status(200).json({
@@ -56,7 +56,7 @@ const controller = {
             returnnext(error)
         }
     },
-    updateExpo: async (req, res) => {
+    updateExpo: async (req, res, next) => {
         try {
             const updateExpoArray = await Expo.findOneAndUpdate({ _id: req.params.id }, req.body, { new: true })
             return res.status(200).json({
